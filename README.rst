@@ -8,32 +8,63 @@ ownCloud server deployment with docker
 .. image:: https://img.shields.io/github/v/release/alexisrapin/owncloud-docker-server
    :target: https://github.com/alexisrapin/owncloud-docker-server/releases
 
+
 Ressources
-----------
+==========
 
 - Installing ownCloud with Docker: https://doc.owncloud.com/server/admin_manual/installation/docker/
+
+
+Requirements
+============
+
+- `Docker <https://docs.docker.com/install/>`_
+- `Docker Compose <https://docs.docker.com/compose/install/>`_
+
+
+Configuration
+=============
+
+The environment configuration is found in the ``.env`` file.
+
+The docker-compose configuration is found in the ``docker-compose.yml`` file.
+
+By default, files and databases are located in the following directories:
+
+::
+
+    data     ownCloud data
+    mysql    ownCloud database
+    backups  ownCloud database backups
+    redis    redis data
 
 Installation
 ============
 
-Requirements:
-- `Docker <https://docs.docker.com/install/>`_
-- `Docker Compose <https://docs.docker.com/compose/install/>`_
+Use ``make`` within the main project directory to manage the containers.
 
-Start the ownCloud server:
+Build and start the ownCloud server containers:
 
 ::
 
-    $ sudo docker-compose up -d
+    $ sudo make up
 
-Check that the docker containers status:
-
-::
-
-    $ sudo docker-compose ps
-
-Stop the ownCloud server:
+Check the containers status:
 
 ::
 
-    $ sudo docker-compose down
+    $ sudo make ps
+
+Stop the ownCloud server containers:
+
+::
+
+    $ sudo make down
+
+Upgrade the ownCloud server version:
+
+::
+
+    $ sudo make upgrade OWNCLOUD_VERSION=<ownCloud version>
+
+
