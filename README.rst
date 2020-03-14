@@ -38,6 +38,15 @@ By default, files and databases are located in the following directories:
     backups  ownCloud database backups
     redis    redis data
 
+By default, the ownCloud server is accessible at ``locallhost:8080``.
+
+The default admin credentials are:
+
+- User: admin
+- Password: admin
+
+Use this default admin account to setup the web app.
+
 Installation
 ============
 
@@ -48,6 +57,8 @@ Build and start the ownCloud server containers:
 ::
 
     $ sudo make up
+
+This can take a couple of minutes when starting the ownCloud server for the first time.
 
 Check the containers status:
 
@@ -66,5 +77,3 @@ Upgrade the ownCloud server version:
 ::
 
     $ sudo make upgrade OWNCLOUD_VERSION=<ownCloud version>
-
-
